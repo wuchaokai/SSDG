@@ -300,7 +300,7 @@ def main(args):
     device = torch.device("cuda:{}".format(args.gpu) if torch.cuda.is_available() else "cpu")
     if args.model=='SSDG':
         if args.dataset in ['snap_patents']:
-            structMatrix = generateStructWeight(nx_graph,'data/' + dataset + '/',select_rate=args.select_rate,percentile=args.percentile,highmemoryutilization=args.highspaceutilization)
+            structMatrix = generateStructWeight(nx_graph,'data/' + dataset + '/',select_rate=args.select_rate,percentile=args.percentile,highmemoryutilization=args.highmemoryutilization)
             featureMatrix = sp.eye(adj.shape[0])
             print(f"structMatrix has {count_sparse_nonzero(structMatrix)} non-zero elements.")
             print('generate struct weight done')
@@ -462,7 +462,7 @@ if __name__ == "__main__":
     parser.add_argument('--threshold', type=float, help='threshold', default=1)
     parser.add_argument('--beta', type=float, help='beta', default=1)
     parser.add_argument('--gpu', type=int, help='gpu', default=0)
-    parser.add_argument('--highspaceutilization', type=bool, help='highspaceutilization', default=False)
+    parser.add_argument('--highmemoryutilization', type=bool, help='highmemoryutilization', default=False)
     args = parser.parse_args()
     print(args)
     
