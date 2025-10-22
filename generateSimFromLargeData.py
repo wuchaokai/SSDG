@@ -501,7 +501,7 @@ def cacWeight(graph, path, select_rate=1,percentile=0,highmemoryutilization=Fals
             )
     elif highmemoryutilization:
         import torch_scatter
-        k=20
+        k=300
         with h5py.File(h5_filename, 'r') as f:
             g = f['matrix']
             
